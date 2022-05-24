@@ -22,10 +22,8 @@ function executeMailto(tab_id, subject, body, selection) {
   if (!default_handler) {
     var custom_url = customMailtoUrl();
     action_url = custom_url.replace("%s", encodeURIComponent(action_url));
-    console.log("Custom url: " + action_url);
     chrome.tabs.create({ url: action_url });
   } else {
-    console.log("Action url: " + action_url);
     chrome.tabs.update(tab_id, { url: action_url });
   }
 }
